@@ -8,7 +8,6 @@ Dropdown.addEventListener('click', function(){
         i.addEventListener("click", function(){
             let value = i.textContent.trim();
             Dropdown.textContent = value;
-            console.log(value)
         })
     })
     }
