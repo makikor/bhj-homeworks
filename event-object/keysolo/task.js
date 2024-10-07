@@ -27,7 +27,11 @@ class Game {
      */
       document.addEventListener('keydown', (i) => {
         let simvol = this.currentSymbol.innerText;
-        (simvol == i.key) ? this.success() : this.fail();
+        if (simvol == i.key) {
+          this.success();
+        } else {
+          this.fail();
+        }
       })
   }
 
