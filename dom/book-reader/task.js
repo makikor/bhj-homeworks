@@ -11,7 +11,7 @@ let childControlBackground = parentControlBackground.querySelectorAll('.color')
 
 
 buttonsSizeText.forEach(function(i){
-    i.addEventListener('click', function(){
+    i.addEventListener('click', () => {
         event.preventDefault();
         resetSizeText(i);
         let elem = i.dataset.size;
@@ -28,7 +28,7 @@ function resetSizeText(i){
 }
 
 childColorText.forEach(function(i){
-    i.addEventListener('click', function(){
+    i.addEventListener('click', () => {
         event.preventDefault();
         resetColorText(i);
         let elem = i.dataset.textColor;
@@ -44,7 +44,7 @@ function resetColorText(i){
     i.classList.add('color_active');
 }
 
-childControlBackground.forEach(function(i){
+childControlBackground.forEach((i) => {
     i.addEventListener('click', function(){
         event.preventDefault();
         resetBackground(i);
@@ -58,6 +58,6 @@ function resetBackground(i){
     books.classList.remove('bg_color_gray');
     books.classList.remove('bg_color_white');
     books.classList.remove('bg_color_black');
-    childControlBackground.forEach((i)=>i.classList.remove('color_active'));
+    childControlBackground.forEach((i) => i.classList.remove('color_active'));
     i.classList.add('color_active');
 }
