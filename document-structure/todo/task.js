@@ -1,34 +1,34 @@
 let button = document.querySelector('.tasks__add');
 let text = document.querySelector('.tasks__input');
-let listTasks = document.querySelector('.tasks__list');
+let tasksList = document.querySelector('.tasks__list');
 
 // на кнопку "Добавить"
 button.addEventListener('click', () => {
     event.preventDefault();
-    if(text.value){
+    if(text.value.trim()){
         createTask();
         text.value ='';
     }
-    
+    deleteTask();  
 })
 
 //добавление таски
 function createTask(){
-    let task = document.createElement('div');
-    task.classList.add('task');
+   
+    tasksList.insertAdjacentHTML('afterbegin', `
+        <div class="task">
+            <div class="task__title">${text.value}</div>
+            <a href="#" class="task__remove">&times;</a>
+        </div>
+    `)
+}
 
-    let titleTask = document.createElement('div');
-    titleTask.classList.add('task__title');
-    titleTask.innerText = text.value;
-
-    let a = document.createElement('a');
-    a.setAttribute('href', '#');
-    a.classList.add('task__remove');
-    a.innerHTML = '&times';
-    a.addEventListener('click', ()=>{
-        task.remove();
+//удаление таски
+function deleteTask(){
+    document.querySelectorAll('.task').forEach((i) => {
+        let task = i;
+        task.lastElementChild.addEventListener('click', () => {
+            task.remove();
+        })
     })
-    
-    task.append(titleTask, a);
-    listTasks.append(task);
 }

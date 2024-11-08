@@ -4,8 +4,8 @@ tooltips.forEach((i) => {
     let div = document.createElement('div');
     div.classList.add('tooltip');
     div.innerHTML = i.title;
-    div.style="left: 0px";
-    i.appendChild(div);
+    div.style=`left: ${i.offsetLeft}px`;
+    i.after(div);
 
 i.addEventListener('click', (elem) => {
     elem.preventDefault();
